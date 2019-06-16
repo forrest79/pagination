@@ -15,5 +15,6 @@ install:
   - composer install --no-interaction --prefer-source
 
 script:
-  - php tests/tests.php
+  - vendor/bin/phpcs -s src tests
   - vendor/bin/phpstan analyse src
+  - php tests/tests.php

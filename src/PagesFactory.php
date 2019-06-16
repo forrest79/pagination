@@ -23,21 +23,17 @@ class PagesFactory
 
 		// we have less pages in our list than the maximal number of steps,
 		// therefore the pagination will show all the pages.
-		if (($lastPage -  $firstPage + 1) < $steps) {
+		if (($lastPage - $firstPage + 1) < $steps) {
 			$pages = range($firstPage, $lastPage);
 		} else {
 			// first, last and current page belong to the pagination in any case
 			$pages = array_unique([$firstPage, $lastPage, $currentPage]);
-			$steps = $steps - count($pages);
+			$steps -= count($pages);
 
 			// calculate how many pages are shown before an after the current page
 			$before = (int) ($steps / 2);
 
-			if (($steps % 2) == 1) {
-				$after = $before + 1;
-			} else {
-				$after = $before;
-			}
+			$after = (($steps % 2) === 1) ? $before + 1 : $before;
 
 			// take into account that there may not be enough space before or after the current page to show
 			// the same number of pages before and after the current page.
@@ -97,11 +93,7 @@ class PagesFactory
 					$logSecond = log($tail);
 					$scaleStepsFirst = $steps * $logFirst / ($logFirst + $logSecond);
 				} else {
-					if ($head <= 0) {
-						$scaleStepsFirst = 0;
-					} else {
-						$scaleStepsFirst = $steps;
-					}
+					$scaleStepsFirst = ($head <= 0) ? 0 : $steps;
 				}
 
 				$scaleStepsFirst = (int) round($scaleStepsFirst);
@@ -121,26 +113,19 @@ class PagesFactory
 				// if we have at least one page before or after the current page we make sure that we also
 				// have at least one link before resp. after the current page
 				if ($forceLinkNextPrev && ($steps > 1)) {
-					if (($head > 1) && ($scaleStepsFirst == 0)) {
+					if (($head > 1) && ($scaleStepsFirst === 0)) {
 						$scaleStepsFirst++;
 						$scaleStepsSecond--;
 					}
-					if (($tail > 1) && ($scaleStepsSecond == 0)) {
+					if (($tail > 1) && ($scaleStepsSecond === 0)) {
 						$scaleStepsFirst--;
 						$scaleStepsSecond++;
 					}
 				}
 
-				if ($scaleStepsFirst > 0) {
-					$elementsBefore = self::getLogSteps($head, $scaleStepsFirst);
-				} else {
-					$elementsBefore = [];
-				}
-				if ($scaleStepsSecond > 0) {
-					$elementsAfter = self::getLogSteps($tail, $scaleStepsSecond);
-				} else {
-					$elementsAfter = [];
-				}
+				$elementsBefore = ($scaleStepsFirst > 0) ? self::getLogSteps($head, $scaleStepsFirst) : [];
+
+				$elementsAfter = ($scaleStepsSecond > 0) ? self::getLogSteps($tail, $scaleStepsSecond) : [];
 
 				foreach ($elementsBefore as $e) {
 					array_push($pages, $current - $e);
