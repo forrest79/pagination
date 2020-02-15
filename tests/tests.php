@@ -4,6 +4,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Forrest79\Pagination;
 
+/**
+ * @param array<int> $expected
+ * @param array<int> $actual
+ */
 function compareArray(array $expected, array $actual, string $errorMessage): void
 {
 	if ($expected !== $actual) {

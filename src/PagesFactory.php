@@ -10,12 +10,18 @@ class PagesFactory
 	public const GAP = NULL;
 
 
+	/**
+	 * @return array<int>
+	 */
 	public static function all(int $lastPage, int $firstPage = 1): array
 	{
 		return range($firstPage, $lastPage);
 	}
 
 
+	/**
+	 * @return array<int|NULL>
+	 */
 	public static function neighbour(int $lastPage, int $currentPage, int $steps, int $firstPage = 1, bool $addGaps = TRUE): array
 	{
 		$firstPage = min($currentPage, $firstPage);
@@ -62,6 +68,9 @@ class PagesFactory
 	}
 
 
+	/**
+	 * @return array<int|NULL>
+	 */
 	public static function logarithmic(int $lastPage, int $current, int $steps, int $firstPage = 1, bool $forceLinkNextPrev = TRUE, bool $addGaps = TRUE): array
 	{
 		if (min($firstPage, $lastPage) < 1) {
@@ -152,8 +161,7 @@ class PagesFactory
 	 *
 	 * @param int $n the size of the largest number
 	 * @param int $s the size of the set of number
-	 * @param int $recursionLevel
-	 * @return array the resultset
+	 * @return array<int> the resultset
 	 */
 	private static function getLogSteps(int $n, int $s, int $recursionLevel = 0): array
 	{
@@ -188,6 +196,10 @@ class PagesFactory
 	}
 
 
+	/**
+	 * @param array<int> $pages
+	 * @return array<int|NULL>
+	 */
 	private static function preparePages(array $pages, bool $addGaps): array
 	{
 		$pages = array_unique($pages);

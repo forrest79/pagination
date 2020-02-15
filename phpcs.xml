@@ -2,6 +2,7 @@
 <ruleset name="Pagination">
 	<rule ref="./vendor/consistence/coding-standard/Consistence/ruleset.xml">
 		<exclude name="Generic.PHP.LowerCaseConstant.Found"/>
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
 	</rule>
 
 	<rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
@@ -26,8 +27,10 @@
 
 	<rule ref="./vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
 		<exclude name="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces.NoEmptyLineAfterOpeningBrace"/>
-		<exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing"/>
 		<exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit"/>
+		<exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure"/>
+		<exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountBeforeControlStructure"/>
+		<exclude name="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing.IncorrectLinesCountBeforeControlStructure"/>
 		<exclude name="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator.MultiLineTernaryOperatorNotUsed"/>
 		<exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison"/>
 		<exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator"/>
