@@ -22,7 +22,13 @@ class PagesFactory
 	/**
 	 * @return array<int|NULL>
 	 */
-	public static function neighbour(int $lastPage, int $currentPage, int $steps, int $firstPage = 1, bool $addGaps = TRUE): array
+	public static function neighbour(
+		int $lastPage,
+		int $currentPage,
+		int $steps,
+		int $firstPage = 1,
+		bool $addGaps = TRUE
+	): array
 	{
 		$firstPage = min($currentPage, $firstPage);
 		$lastPage = max($currentPage, $lastPage);
@@ -71,7 +77,14 @@ class PagesFactory
 	/**
 	 * @return array<int|NULL>
 	 */
-	public static function logarithmic(int $lastPage, int $current, int $steps, int $firstPage = 1, bool $forceLinkNextPrev = TRUE, bool $addGaps = TRUE): array
+	public static function logarithmic(
+		int $lastPage,
+		int $current,
+		int $steps,
+		int $firstPage = 1,
+		bool $forceLinkNextPrev = TRUE,
+		bool $addGaps = TRUE
+	): array
 	{
 		if (min($firstPage, $lastPage) < 1) {
 			throw new \InvalidArgumentException('logarithmic paginations must begin at page 1 or higher');
@@ -146,6 +159,7 @@ class PagesFactory
 		}
 		return self::preparePages($pages, $addGaps);
 	}
+
 
 	/**
 	 * divide a given integer number in a given number of steps on a log scale

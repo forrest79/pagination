@@ -14,5 +14,5 @@ install:
 
 script:
   - vendor/bin/phpcs -s src tests
-  - vendor/bin/phpstan analyse src
+  - vendor/bin/phpstan analyse src tests
   - php tests/tests.php
