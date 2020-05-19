@@ -23,5 +23,10 @@
 		"psr-4": {
 			"Forrest79\\Pagination\\": "src/"
 		}
+	},
+	"scripts": {
+		"tests": "php tests/tests.php",
+		"phpcs": "vendor/bin/phpcs -s src tests",
+		"phpstan": "vendor/bin/phpstan analyse src tests"
 	}
 }
