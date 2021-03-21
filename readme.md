@@ -1,6 +1,8 @@
 # Pagination
 
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/forrest79/Pagination/blob/master/license.md)
+[![Latest Stable Version](https://poser.pugx.org/forrest79/pagination/v)](//packagist.org/packages/forrest79/pagination)
+[![Monthly Downloads](https://poser.pugx.org/forrest79/pagination/d/monthly)](//packagist.org/packages/forrest79/pagination)
+[![License](https://poser.pugx.org/forrest79/pagination/license)](//packagist.org/packages/forrest79/pagination)
 [![Build](https://github.com/forrest79/Pagination/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/forrest79/Pagination/actions/workflows/build.yml)
 
 Create pages list for pagination with logarithmic scale, neighbour pages or all pages.
@@ -27,7 +29,7 @@ $pages = Forrest79\Pagination\PagesFactory::neighbour(100, 1, 5);
 $pages = Forrest79\Pagination\PagesFactory::logarithmic(100, 10, 10);
 ```
 
-You will get sorted `array` with `integer` pages numbers. For neighbour and logarithmic scale, there are also `NULL` values at place, where is broken pages series, for example: `[1, 2, 3, NULL, 7, 8]`. So you know where print space. You can disable this behavior by settings parameter `$addGaps` to `FALSE`. 
+You will get sorted `array` with `integer` pages numbers. For neighbour and logarithmic scale, there are also `NULL` values at place, where is broken pages series, for example: `[1, 2, 3, NULL, 7, 8]`. So you know where print space. You can disable this behavior by settings parameter `$addGaps` to `FALSE`.
 
 ### Example with Nette
 
