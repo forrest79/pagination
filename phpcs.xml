@@ -18,11 +18,6 @@
 		</properties>
 	</rule>
 
-	<!-- PHP 8.0 -->
-	<rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration.MissingTrailingComma">
-		<exclude-pattern>src/*</exclude-pattern>
-	</rule>
-
 	<rule ref="Squiz.Functions.GlobalFunction.Found">
 		<exclude-pattern>tests/tests.php</exclude-pattern>
 	</rule>

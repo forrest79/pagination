@@ -11,7 +11,7 @@ class PagesFactory
 
 
 	/**
-	 * @return array<int>
+	 * @return list<int>
 	 */
 	public static function all(int $lastPage, int $firstPage = 1): array
 	{
@@ -20,14 +20,14 @@ class PagesFactory
 
 
 	/**
-	 * @return array<int|NULL>
+	 * @return list<int|NULL>
 	 */
 	public static function neighbour(
 		int $lastPage,
 		int $currentPage,
 		int $steps,
 		int $firstPage = 1,
-		bool $addGaps = TRUE
+		bool $addGaps = TRUE,
 	): array
 	{
 		$firstPage = min($currentPage, $firstPage);
@@ -64,18 +64,18 @@ class PagesFactory
 
 			// push the pages before and after the current page into the pagination elements
 			for ($i = $currentPage - $before; $i < $currentPage; $i++) {
-				array_push($pages, $i);
+				$pages[] = $i;
 			}
 			for ($i = $currentPage + 1; $i <= $currentPage + $after; $i++) {
-				array_push($pages, $i);
+				$pages[] = $i;
 			}
 		}
-		return self::preparePages($pages, $addGaps);
+		return self::preparePages(array_values($pages), $addGaps);
 	}
 
 
 	/**
-	 * @return array<int|NULL>
+	 * @return list<int|NULL>
 	 */
 	public static function logarithmic(
 		int $lastPage,
@@ -83,11 +83,11 @@ class PagesFactory
 		int $steps,
 		int $firstPage = 1,
 		bool $forceLinkNextPrev = TRUE,
-		bool $addGaps = TRUE
+		bool $addGaps = TRUE,
 	): array
 	{
 		if (min($firstPage, $lastPage) < 1) {
-			throw new \InvalidArgumentException('logarithmic paginations must begin at page 1 or higher');
+			throw new \InvalidArgumentException('logarithmic pagination must begin at page 1 or higher');
 		}
 
 		if ($steps <= 0) {
@@ -150,14 +150,15 @@ class PagesFactory
 				$elementsAfter = ($scaleStepsSecond > 0) ? self::getLogSteps($tail, $scaleStepsSecond) : [];
 
 				foreach ($elementsBefore as $e) {
-					array_push($pages, $current - $e);
+					$pages[] = $current - $e;
 				}
 				foreach ($elementsAfter as $e) {
-					array_push($pages, $current + $e);
+					$pages[] = $current + $e;
 				}
 			}
 		}
-		return self::preparePages($pages, $addGaps);
+
+		return self::preparePages(array_values($pages), $addGaps);
 	}
 
 
@@ -175,7 +176,7 @@ class PagesFactory
 	 *
 	 * @param int $n the size of the largest number
 	 * @param int $s the size of the set of number
-	 * @return array<int> the resultset
+	 * @return list<int> the resultset
 	 */
 	private static function getLogSteps(int $n, int $s, int $recursionLevel = 0): array
 	{
@@ -203,7 +204,7 @@ class PagesFactory
 
 		$resultSet = [];
 		for ($i = 0; $i < $s; $i++) {
-			array_push($resultSet, (int) round(pow($stepSize, $i) + $recursionLevel));
+			$resultSet[] = (int) round(pow($stepSize, $i) + $recursionLevel);
 		}
 
 		return $resultSet;
@@ -211,8 +212,8 @@ class PagesFactory
 
 
 	/**
-	 * @param array<int> $pages
-	 * @return array<int|NULL>
+	 * @param list<int> $pages
+	 * @return list<int|NULL>
 	 */
 	private static function preparePages(array $pages, bool $addGaps): array
 	{
@@ -231,7 +232,7 @@ class PagesFactory
 			$pages = $pagesWithGap;
 		}
 
-		return $pages;
+		return array_values($pages);
 	}
 
 }

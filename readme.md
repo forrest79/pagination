@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/forrest79/pagination/license)](//packagist.org/packages/forrest79/pagination)
 [![Build](https://github.com/forrest79/Pagination/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/forrest79/Pagination/actions/workflows/build.yml)
 
-Create pages list for pagination with logarithmic scale, neighbour pages or all pages.
+Create a page list for pagination with the logarithmic scale, neighbor pages or all pages.
 
 Algorithms are copied from https://github.com/nikolassv/pagination.
 
@@ -21,7 +21,7 @@ composer require forrest79/pagination
 
 ## How to use it
 
-Just call `PagesFactory::` with pages list you want:
+Just call `PagesFactory::` with the page list you want:
 
 ```php
 $pages = Forrest79\Pagination\PagesFactory::all(100);
@@ -29,7 +29,7 @@ $pages = Forrest79\Pagination\PagesFactory::neighbour(100, 1, 5);
 $pages = Forrest79\Pagination\PagesFactory::logarithmic(100, 10, 10);
 ```
 
-You will get sorted `array` with `integer` pages numbers. For neighbour and logarithmic scale, there are also `NULL` values at place, where is broken pages series, for example: `[1, 2, 3, NULL, 7, 8]`. So you know where print space. You can disable this behavior by settings parameter `$addGaps` to `FALSE`.
+You will get sorted `array` with `integer` pages numbers. For neighbor and logarithmic scale, there are also `NULL` values at place, where is broken pages series, for example: `[1, 2, 3, NULL, 7, 8]`. So you know where to print space. You can disable this behavior by settings parameter `$addGaps` to `FALSE`.
 
 ### Example with Nette
 
