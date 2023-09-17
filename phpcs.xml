@@ -2,31 +2,11 @@
 <ruleset name="Pagination">
 	<rule ref="./vendor/forrest79/phpcs/Forrest79CodingStandard/ruleset.xml"/>
 
-	<rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
-		<exclude-pattern>tests/tests.php</exclude-pattern>
-	</rule>
-
-	<rule ref="SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal">
-		<exclude-pattern>src/*</exclude-pattern>
-	</rule>
-
 	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
 		<properties>
 			<property name="rootNamespaces" type="array" value="
 				src=>Forrest79\Pagination,
 			"/>
 		</properties>
-	</rule>
-
-	<rule ref="Squiz.Functions.GlobalFunction.Found">
-		<exclude-pattern>tests/tests.php</exclude-pattern>
-	</rule>
-
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing.After">
-		<exclude-pattern>tests/tests.php</exclude-pattern>
-	</rule>
-
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing.Before">
-		<exclude-pattern>tests/tests.php</exclude-pattern>
 	</rule>
 </ruleset>
