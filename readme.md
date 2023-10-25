@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/forrest79/pagination/v)](//packagist.org/packages/forrest79/pagination)
 [![Monthly Downloads](https://poser.pugx.org/forrest79/pagination/d/monthly)](//packagist.org/packages/forrest79/pagination)
 [![License](https://poser.pugx.org/forrest79/pagination/license)](//packagist.org/packages/forrest79/pagination)
-[![Build](https://github.com/forrest79/Pagination/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/forrest79/Pagination/actions/workflows/build.yml)
+[![Build](https://github.com/forrest79/pagination/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/forrest79/pagination/actions/workflows/build.yml)
 
 Create a page list for pagination with the logarithmic scale, neighbor pages or all pages.
 
