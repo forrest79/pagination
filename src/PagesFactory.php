@@ -7,7 +7,7 @@ namespace Forrest79\Pagination;
  */
 class PagesFactory
 {
-	public const GAP = NULL;
+	public const GAP = null;
 
 
 	/**
@@ -20,14 +20,14 @@ class PagesFactory
 
 
 	/**
-	 * @return list<int|NULL>
+	 * @return list<int|null>
 	 */
 	public static function neighbour(
 		int $lastPage,
 		int $currentPage,
 		int $steps,
 		int $firstPage = 1,
-		bool $addGaps = TRUE,
+		bool $addGaps = true,
 	): array
 	{
 		$firstPage = min($currentPage, $firstPage);
@@ -75,15 +75,15 @@ class PagesFactory
 
 
 	/**
-	 * @return list<int|NULL>
+	 * @return list<int|null>
 	 */
 	public static function logarithmic(
 		int $lastPage,
 		int $current,
 		int $steps,
 		int $firstPage = 1,
-		bool $forceLinkNextPrev = TRUE,
-		bool $addGaps = TRUE,
+		bool $forceLinkNextPrev = true,
+		bool $addGaps = true,
 	): array
 	{
 		if (min($firstPage, $lastPage) < 1) {
@@ -213,7 +213,7 @@ class PagesFactory
 
 	/**
 	 * @param list<int> $pages
-	 * @return list<int|NULL>
+	 * @return list<int|null>
 	 */
 	private static function preparePages(array $pages, bool $addGaps): array
 	{
@@ -232,7 +232,7 @@ class PagesFactory
 			$pages = $pagesWithGap;
 		}
 
-		return array_values($pages);
+		return $pages;
 	}
 
 }

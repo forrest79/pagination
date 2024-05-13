@@ -29,7 +29,7 @@ $pages = Forrest79\Pagination\PagesFactory::neighbour(100, 1, 5);
 $pages = Forrest79\Pagination\PagesFactory::logarithmic(100, 10, 10);
 ```
 
-You will get sorted `array` with `integer` pages numbers. For neighbor and logarithmic scale, there are also `NULL` values at place, where is broken pages series, for example: `[1, 2, 3, NULL, 7, 8]`. So you know where to print space. You can disable this behavior by settings parameter `$addGaps` to `FALSE`.
+You will get sorted `array` with `integer` pages numbers. For neighbor and logarithmic scale, there are also `null` values at place, where is broken pages series, for example: `[1, 2, 3, null, 7, 8]`. So you know where to print space. You can disable this behavior by settings parameter `$addGaps` to `false`.
 
 ### Example with Nette
 
@@ -41,7 +41,7 @@ class Paginator extends Nette\Utils\Paginator
 
 	public function pages(): array
 	{
-		if ($this->getPageCount() === NULL) {
+		if ($this->getPageCount() === null) {
 			throw new InvalidArgumentException('We need page count set to generate pages list');
 		}
 		return Forrest79\Pagination\PagesFactory::logarithmic($this->getPageCount(), $this->getPage(), 10);
@@ -53,8 +53,8 @@ class Paginator extends Nette\Utils\Paginator
 And in `latte`:
 
 ```php
-<li n:foreach="$paginator->pages() as $page" n:class="$page === $paginator->getPage() ? active, $page === NULL ? disabled">
-	{if $page === NULL}
+<li n:foreach="$paginator->pages() as $page" n:class="$page === $paginator->getPage() ? active, $page === null ? disabled">
+	{if $page === null}
 		..
 	{else}
 		<a n:href="this, page => $page">{$page}</a>
