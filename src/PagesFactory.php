@@ -232,7 +232,7 @@ class PagesFactory
 			$pages = $pagesWithGap;
 		}
 
-		return array_values($pages);
+		return $pages;
 	}
 
 }
